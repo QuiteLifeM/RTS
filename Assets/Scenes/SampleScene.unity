@@ -249,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947491132557438021, guid: afc8b2d01c28552438dfdffd880c9823, type: 3}
       propertyPath: _delay
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8947491132557438021, guid: afc8b2d01c28552438dfdffd880c9823, type: 3}
       propertyPath: resource
@@ -613,6 +613,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1745551178082962367, guid: c3a9d712f6fd48740b7a92f11225680e, type: 3}
+      propertyPath: _maxUnitCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277338525161953723, guid: c3a9d712f6fd48740b7a92f11225680e, type: 3}
+      propertyPath: _unitPrefab
+      value: 
+      objectReference: {fileID: 2549520343130617052, guid: 2e64261dd2c42a043a70d62f7575dd9d, type: 3}
     - target: {fileID: 5657687066094901820, guid: c3a9d712f6fd48740b7a92f11225680e, type: 3}
       propertyPath: m_Name
       value: Base

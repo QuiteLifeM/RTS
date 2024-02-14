@@ -27,7 +27,8 @@ public class MouseRaycaster : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent(out Plane plane))
                 {
-                    _currentBase.MoveFlag(hit.point);
+                    _currentBase?.SetFlag(hit.point);
+                    _currentBase = null;
                 }
                 
                 if (hit.collider.gameObject.TryGetComponent(out Base newBase))
@@ -35,7 +36,6 @@ public class MouseRaycaster : MonoBehaviour
                     newBase.SetIsTouch();
                     _currentBase = newBase;
                 }
-                // Debug.Log("точка коллизии" + hit.point + hit.collider.gameObject.name);
             }
         }
     }

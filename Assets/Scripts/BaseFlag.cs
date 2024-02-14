@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseFlag : MonoBehaviour
@@ -20,7 +17,7 @@ public class BaseFlag : MonoBehaviour
         IsReserve = false;
     }
 
-    public void MovePosition(Vector3 newPosition)
+    public void SetPosition(Vector3 newPosition)
     {
         gameObject.SetActive(true);
         transform.position = newPosition;

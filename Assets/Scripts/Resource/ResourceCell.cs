@@ -10,7 +10,7 @@ public class ResourceCell : MonoBehaviour
     public void SetResource(Resource resource) => _resource = resource;
 
     public Resource GetResource()
-    {
+    {   
         var resource = _resource;
         Clear();
 

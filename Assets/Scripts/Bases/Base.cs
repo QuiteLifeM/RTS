@@ -27,19 +27,8 @@ public class Base : MonoBehaviour
         _baseMoneySystem.BotAccumulated += OnBotAccumulated;
         _baseMoneySystem.BaseAccumulated += OnBaseAccumulated;
     }
-
-    private void Update()
-    {
-        _time += Time.deltaTime;
-
-        if (_time > _delay)
-        {
-            _resourceScanner.Scan();
-            _time = 0;
-        }
-    }
-
-    private void Start() => StopCoroutine(Scanning());
+    
+    private void Start() => StartCoroutine(Scanning());
 
     private void OnDisable()
     {
@@ -52,26 +41,16 @@ public class Base : MonoBehaviour
 
     public void AddUnit(Unit unit) => _units.Add(unit);
 
-    public void SetIsTouch()
-    {
-        if (_isTouch)
-        {
-            _isTouch = false;
-        }
-        else
-        {
-            _isTouch = true;
-        }
-    }
+    public void SetIsTouch() => _isTouch = !_isTouch;
 
-    public void MoveFlag(Vector3 newPosition)
+    public void SetFlag(Vector3 newPosition)
     {
         if (_isTouch == false)
         {
             return;
         }
 
-        _baseFlag.MovePosition(newPosition);
+        _baseFlag.SetPosition(newPosition);
     }
 
     private void OnUnitSpawned(Unit unit)
@@ -118,7 +97,7 @@ public class Base : MonoBehaviour
                 }
                 
                 resourceCell.Reserve();
-                unit.Mine(resourceCell);
+                unit.Dig(resourceCell);
                 
                 return;
             }
@@ -129,7 +108,11 @@ public class Base : MonoBehaviour
 
     private IEnumerator Scanning()
     {
-        yield return new WaitForSeconds(4f);
-        _resourceScanner.Scan();
+        while (enabled)
+        {
+            print("Скан работает");
+            yield return new WaitForSeconds(_delay);
+            _resourceScanner.Scan();
+        }
     }
 }

@@ -6,7 +6,6 @@ public class UnitMover : MonoBehaviour
     [SerializeField] private float _moveSpeed;
 
     private Transform _target;
-    private Transform _base;
 
     private void Update() => Move();
 

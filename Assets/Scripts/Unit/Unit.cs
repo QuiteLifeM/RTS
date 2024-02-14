@@ -7,7 +7,6 @@ public class Unit : MonoBehaviour
 {
     [SerializeField] private UnitMover _mover;
     [SerializeField] private UnitCollector _collector;
-    [SerializeField] private UnitTransmitter _transmitter;
     [SerializeField] private UnitBaseBuilder _unitBaseBuilder;
 
     private Base _base;
@@ -33,7 +32,7 @@ public class Unit : MonoBehaviour
         _unitBaseBuilder.BaseBuilt -= OnBaseBuilt;
     }
 
-    public void Mine(ResourceCell resourceCell)
+    public void Dig(ResourceCell resourceCell)
     {
         IsBusy = true;
         _mover.SetTarget(resourceCell.transform);
